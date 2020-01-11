@@ -1,22 +1,16 @@
 <h1 class="text-center">Articles</h1>
 <p>
-<%= link_to "Create new article", new_article_path %>
+  <%= link_to "Create new article", new_article_path %>
 </p>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Descriptions</th>
-        <th></th>
-    </tr>
-    <% @articles.each do |article| %>
-    <tr>
-        <td><b><%= article.title %></b></td>
-        <td><%= article.description %></td>
-        <td>
-        <%= link_to "Edit", edit_article_path(article)  %>
-        <%= link_to "Show", article_path(article)  %>
-        <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure ?"}  %>
-        </td>
-    </tr>
-    <% end %>
-</table>
+<% @articles.each do |article| %>
+  <div class="card mb-3 shadow-sm">
+    <div class="card-body">
+      <h4><%= link_to article.title, article_path(article) %></h4>
+      <p>
+        <%= article.description %>
+      </p>
+      <%= link_to "Edit", edit_article_path(article),class: "btn btn-sm btn-primary"  %>
+      <%= link_to "Delete", article_path(article),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
+    </div>
+  </div>
+<% end %>
