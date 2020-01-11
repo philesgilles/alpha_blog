@@ -1,0 +1,24 @@
+@import "bootstrap/dist/css/bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  color: #222;
+}
+
+.navbar {
+  background-color: #304455 !important;
+}
+
+.navbar-brand {
+  padding: 10px;
+}
+
+.jumbotron {
+  background-image: url("https://picsum.photos/1200/300");
+  background-size: cover;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+}
