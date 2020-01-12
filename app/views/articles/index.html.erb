@@ -2,4 +2,6 @@
 <p>
   <%= link_to "Create new article", new_article_path,class: "btn btn-sm btn-success" %>
 </p>
+<div class="text-center"><%= will_paginate  %></div>
 <%= render 'list_articles', obj: @articles %>
+<div class="text-center"><%= will_paginate %></div>
