@@ -1,0 +1,17 @@
+<%= render  "shared/errors", obj: @category %>
+<div class="row">
+  <div class="col-12">
+    <%= form_for @category do |f|%>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit submit, class: "btn btn-secondary" %>
+      </div>
+    <% end %>
+    <div class="col-12 text-center">
+      <%= link_to 'Cancel and return to categories', categories_path %>
+    </div>
+  </div>
+</div>

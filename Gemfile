@@ -20,6 +20,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Controller Test
+gem 'rails-controller-testing'
+
 #use Pagination module
 gem 'will_paginate', '3.1.7'
 gem 'will_paginate-bootstrap4'

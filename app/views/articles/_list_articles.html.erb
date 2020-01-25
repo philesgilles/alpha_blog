@@ -8,7 +8,7 @@
       <div class="article-meta-details">
         <small>Created by: <%= article.user.username %>, <%= time_ago_in_words(article.created_at) %> ago. </small>
       </div>
-      <% if logged_in? && current_user == article.user %>
+      <% if logged_in? && (current_user == article.user || current_user.admin? )%>
         <%= link_to "Edit", edit_article_path(article),class: "btn btn-sm btn-primary"  %>
         <%= link_to "Delete", article_path(article),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
       <% end %>

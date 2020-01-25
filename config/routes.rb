@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   #all articles
   resources :articles
+
+  #all categories
+  resources :categories, except: [:destroy]
   
   #all users
   get 'signup', to: 'users#new'
