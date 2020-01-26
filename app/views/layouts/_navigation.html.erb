@@ -16,16 +16,31 @@
       </li>
       <% if logged_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="actionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Actions
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu" aria-labelledby="actionDropdown">
             <%= link_to "New articles", new_article_path, class:"dropdown-item"%>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
       <% end %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+            <%= link_to "All categories", categories_path, class:"dropdown-item"%>
+            <% Category.all.each do |category| %>
+            <%= link_to "#{category.name}", category_path(category), class:"dropdown-item"%>
+            <% end %>
+            <% if logged_in? && current_user.admin? %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Create new category", new_category_path, class:"dropdown-item"%>
+            <% end %>
+          </div>
+        </li>
     </ul>
     <ul class="navbar-nav">
       <% if logged_in? %>
