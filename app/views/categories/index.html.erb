@@ -1,10 +1,15 @@
 <h1>Categories</h1>
 <div class="row d-flex justify-content-around">
-    <div class="col-6 offset-3">
-        <%= will_paginate%>
-        <% @categories.each do |category| %>
-            <p class=""><%=link_to "#{category.name}", category_path(category)%></p>
-        <% end %>
+    <div class="col-8 d-flex justify-content-around">
         <%= will_paginate%>
     </div>
+        <% @categories.each do |category| %>
+    <div class="col-8 border pt-3 mb-3">
+            <h5 class=""><%=link_to "#{category.name}", category_path(category)%></h5>
+                <small><%= pluralize(category.articles.count, "article") %></small>
+    </div>
+        <% end %>
+        <div class="col-8 d-flex justify-content-around">
+        <%= will_paginate%>
+        </div>
 </div>
