@@ -1,8 +1,15 @@
 <h1><%= "Category: " + @category.name %></h1>
-<div class="row d-flex justify-content-around">
-    <div class="col">
-        <%= will_paginate @category_articles %>
+<% if logged_in? and current_user.admin? %>
+<h4><%= link_to "Edit category", edit_category_path(@category), class: "badge badge-lg badge-danger my-3"%></h4>
+<% end %>
+<div class="row d-flex">
+    <div class="col-12 d-flex justify-content-center">
+    <%= will_paginate @category_articles %>
+    </div>
+    <div class="col-12">
         <%= render 'articles/list_articles',obj: @category_articles%>
-        <%= will_paginate @category_articles%>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+    <%= will_paginate @category_articles %>
     </div>
 </div>

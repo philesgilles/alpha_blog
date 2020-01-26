@@ -4,7 +4,7 @@
         <%= will_paginate%>
     </div>
         <% @categories.each do |category| %>
-    <div class="col-8 border pt-3 mb-3">
+    <div class="col-8 border py-3 mb-3 text-center shadow-sm">
             <h5 class=""><%=link_to "#{category.name}", category_path(category)%></h5>
                 <small><%= pluralize(category.articles.count, "article") %></small>
     </div>
